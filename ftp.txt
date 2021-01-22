@@ -1,0 +1,22 @@
+USER uftp
+in UTF8 mode.
+rvi 45173USER uftp
+specify the passwo 45173PASS 654321
+ecify the password 45173
+USER uftp
+in UTF8 mode.
+rvi 9333 PASS 654321
+ecify the password 9333 
+USER uftp
+in UTF8 mode.
+rvi 62960 PASS 654321
+ecify the password 62960 
+USER uftp
+in UTF8 mode.
+rvi 31021 PASS 654321
+ecify the password 31021 
+USER uftp 7437 USER uftp 7437 USER uftp 7437 PASS 654321 7437 
+USER uftp 7450 PASS 654321 7450 
+USER uftp 7431 PASS 654321 7431 
+USER uftp 7428 PASS 654321 7428 
+USER uftp 49369 PASS 123456ABC###˙ù≥˘ 49369 

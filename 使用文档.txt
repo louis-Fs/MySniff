@@ -1,0 +1,48 @@
+首先要确定监听的网卡 
+
+     ：*.exe --eth
+
+根据你的网卡确定flag，然后开始抓包。MySniff支持 数据链路层的ARP协议，网络层的ICMP IGMP ，传输层基于TCP的（HTTP、TELNET、FTP可判断，其他基于TCP的协议只是打印数据）和基于UDP的（DNS协议、DHCP协议可判断，其他协议只是打印数据）选择分析。
+不支持的协议将会显示：MySniff not soupport this packet's potocol: -100
+
+1.全局模式（不显示数据包的具体内容）
+
+*.exe --eth=flag
+
+此时会有经过这个网卡并且程序支持的协议数据包显示，此时基于tcp的协议（ftp，telnet，http）都没有显示。但是是抓到了，只是没有打印内容。
+一般来说，此时以udp居多，或者DNS，或者ARP。
+如果不加=flag 默认监听函数找到的第一个网卡 建议在物理机下（windows）指定。在虚拟机或者服务器（如linux）下可以不用指定。
+
+2.全局模式（显示具体数据内容）
+
+*.exe --eth=flag --debug
+
+此时会打印出MySniff支持的协议的数据包的payload或者头部。内容比较多。
+
+3.协议模式（不含端口，只是分析不含抓敏感数据功能，可以与--ip 【】 --port 【】 --debug 叠加使用）
+
+*.exe --eth=flag --icmp （不受debug影响）
+
+*.exe --eth=flag --igmp （不受debug影响）
+
+*.exe --eth=flag --arp（开启debug会有payload数据；没有开启debug则是打印IP或者mac）
+
+*.exe --eth=flag --tcp（所有基于tcp的协议的打印。如果没有开起debug，不会有数据内容）
+
+*.exe --eth=flag --udp（打印所有基于udp的数据包。如果开启debug会有payload数据；没有开启则是打印IP或者mac）
+
+4.指定PORT/IP/模式（可叠加--debug）
+
+*.exe --eth=flag --tcp --ip 127.0.0.1 --port 80（--ip会过滤掉源ip或者目的ip不是指定的包，--port同样也是）
+
+5.抓取敏感数据模式（暂时只支持HTTP、FTP、TELNET，可叠加--ip、--port --debug对其无影响）
+
+*.exe --eth=flag --tcp=default （HTTP、FTP、TELNET三种协议经过网卡都会被抓到，并存到.exe用一目录下的【协议.txt】文件里
+
+*.exe --eth=flag --tcp=http（相应协议）
+
+*.exe --eth=flag --tcp=ftp（相应协议）
+
+*.exe --eth=flag --tcp=telnet （相应协议）
+ 
+

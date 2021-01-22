@@ -1,0 +1,23 @@
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+*.un~
+gaze
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# for mac os
+*.dSYM
+
+# for tmp files
+*.swp
+tags
+cscope.*

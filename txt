@@ -1,0 +1,18 @@
+使用文档:
+    如果加上--debug 将会打印全部内容，不加只会打印部分内容
+
+
+
+./MySniff --tcp --port 8081  
+
+./MySniff --tcp --port 21
+
+./MySniff --tcp --port 23
+
+./MySniff --udp 
+
+./MySniff --arp 
+
+./MySniff --icmp 
+
+
